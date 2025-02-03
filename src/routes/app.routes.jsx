@@ -70,10 +70,7 @@ const AppRoutes = () => {
               element={
                 user && isTokenValid(user.token) ? (
                   // > If the user is logged in, redirect them away from login/register pages
-                  <Navigate
-                    to="/"
-                    replace
-                  />
+                  <Navigate to="/" replace />
                 ) : (
                   route.element
                 )
@@ -91,10 +88,7 @@ const AppRoutes = () => {
               user && isTokenValid(user.token) ? (
                 route.element
               ) : (
-                <Navigate
-                  to="/login"
-                  replace
-                />
+                <Navigate to="/login" replace />
               )
             }
           />
