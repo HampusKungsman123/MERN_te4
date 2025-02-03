@@ -34,10 +34,13 @@ const LoginForm = () => {
   // handle login
   const handleLogin = async (values) => {
     try {
-      const response = await axios.post("http://localhost:4000/api/auth/login", {
-        email: values.email,
-        password: values.password,
-      });
+      const response = await axios.post(
+        "https://server-setup-express-iota.vercel.app/auth/login",
+        {
+          email: values.email,
+          password: values.password,
+        }
+      );
 
       console.log(response.data);
       dispatch(setUserToState(response.data.user, response.data.token));
@@ -64,31 +67,18 @@ const LoginForm = () => {
         validationSchema={loginValidation}
         onSubmit={async (values) => {
           await handleLogin(values);
-        }}>
+        }}
+      >
         <Form>
           <div className="">
             <label htmlFor="email">Email</label>
-            <Field
-              type="email"
-              id="email"
-              name="email"
-            />
-            <ErrorMessage
-              name="email"
-              component="div"
-            />
+            <Field type="email" id="email" name="email" />
+            <ErrorMessage name="email" component="div" />
           </div>
           <div className="">
             <label htmlFor="password">Password</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-            />
+            <Field type="password" id="password" name="password" />
+            <ErrorMessage name="password" component="div" />
           </div>
           <button type="submit">Login</button>
         </Form>
