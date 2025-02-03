@@ -14,8 +14,6 @@ const api = axios.create({
 
 const passwordRegex = /^(?=.*[A-Z])(?=.*[\W]).{8,}$/;
 
-
-
 const registerValidation = Yup.object().shape({
   name: Yup.string()
     .required("Name is required")
@@ -36,7 +34,7 @@ const initialValues = {
 };
 
 const RegisterForm = () => {
-    const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,7 +44,6 @@ const RegisterForm = () => {
       }, 5000);
     }
   }, [error]);
-    
 
   const handleRegister = async (values) => {
     try {
@@ -56,8 +53,7 @@ const RegisterForm = () => {
         password: values.password,
         confirmPassword: values.confirmPassword,
       });
-        console.log(response.data);
-        setRegistered = true;
+      console.log(response.data);
       dispatch(setUserToState(response.data.user, response.data.token));
     } catch (error) {
       console.log(error);
@@ -111,6 +107,9 @@ const RegisterForm = () => {
           <button type="submit">Register</button>
         </Form>
       </Formik>
+      <a href="/login">
+        <button>Go to Login Page</button>
+      </a>
     </div>
   );
 };

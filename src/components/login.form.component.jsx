@@ -83,6 +83,9 @@ const LoginForm = () => {
           <button type="submit">Login</button>
         </Form>
       </Formik>
+      <a href="/register">
+        <button>Go to Register Page</button>
+      </a>
     </div>
   );
 };
