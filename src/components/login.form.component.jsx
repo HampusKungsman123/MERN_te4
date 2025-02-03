@@ -35,7 +35,7 @@ const LoginForm = () => {
   const handleLogin = async (values) => {
     try {
       const response = await axios.post(
-        "https://server-setup-express-iota.vercel.app/auth/login",
+        "https://server-setup-express-iota.vercel.app/api/auth/login",
         {
           email: values.email,
           password: values.password,
